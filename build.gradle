@@ -37,7 +37,7 @@ docker {
 	dockerfile file('Dockerfile')
 	dependsOn(tasks.findByPath("build"))
 	name imageName
-	files bootJar.archiveFile.get()
+	files bootJar.archiveFile.get("$projectDir")
 	buildArgs(['JAR_FILE': "${bootJar.archiveFileName.get()}"])
 }
 dockerRun {
