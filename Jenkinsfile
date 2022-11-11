@@ -12,17 +12,20 @@ pipeline {
         }
          stage('Test') {
             steps {
-                sh './gradlew test'
+                #sh './gradlew test'
+                sh 'gradle test'
             }
         }
         stage('Build Docker Image') {
             steps {
-                sh './gradlew docker'
+                #sh './gradlew docker'
+                sh 'gradle docker'
             }
         }
         stage('Run Docker Image') {
             steps {
-                sh './gradlew dockerRun'
+                #sh './gradlew dockerRun'
+                sh 'gradle dockerRun'
             }
         }
     }
